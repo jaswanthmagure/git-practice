@@ -31,6 +31,9 @@ input{
   -moz-display: flex;
   -o-display: flex;
 }
+.flex-column{
+    flex-direction: column;
+}
 /* Bg */
 .bg-full{
   background-size: cover;
@@ -38,6 +41,12 @@ input{
   background-repeat: no-repeat;
 }
 /* Main */
+.heading{
+    margin-bottom: 10em;
+}
+.heading h3{
+    color: rgba(190,200,165,.9);
+}
 #main{
   max-height: 100%;
   width: 100vw; height: 100vh;
@@ -106,12 +115,13 @@ input{
 }
 </style>
 <body>
-    <main id="main" class="d-flx bg-full" role="main">
+    <main id="main" class="d-flx bg-full flex-column" role="main">
+        <div class="heading"><h3>Login Page</h3></div>
         <section class="login d-flx">
             <form action="" class="frm-login d-flx" role="login">
                 <input type="text" placeholder="User" id="userLogin" autofocus required="required" autocomplete="off">
                 <input type="password" placeholder="Pass" id="passLogin" required="required" autocomplete="off">
-                <button id="submitLogin">Sign In Here</button>
+                <button id="submitLogin">Sign In</button>
             </form>
         </section>
     </main>
