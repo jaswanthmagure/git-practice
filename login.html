@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+</head>
+<style>
+*{
+  max-width: 100%;
+  -webkit-transition: .9s ease all;
+	-o-transition: .9s ease all;
+	transition: .9s ease all;
+  -webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+  outline: none;
+  letter-spacing: 1px;
+}
+input{
+  background-color: transparent; 
+  border: none;
+  color: rgba(49,63,76,1);
+  padding: .5em;
+}
+/* Flex */
+.d-flx{
+  display: flex;
+  -webkit-display: flex;
+  -moz-display: flex;
+  -o-display: flex;
+}
+/* Bg */
+.bg-full{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Main */
+#main{
+  max-height: 100%;
+  width: 100vw; height: 100vh;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  -ms-align-items: center;
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/82/4b/87/824b877bf4c731e3fcc13a8881c3e982.jpg");
+}
+#main:before{
+  content: '';
+  max-width: 100%; max-height: 100%;
+  width: 100vw; height: 100vh;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1;
+  background-color: rgba(0,0,0,.5);
+}
+/* Login */
+.login{
+  max-width: 350px;
+  width: 100vw;
+  background-color: rgba(190,200,165,.9);
+  position: relative;
+  z-index: 3;
+  border-radius: 2px;
+  padding: 1em;
+  -webkit-box-shadow: 10px 10px 50px 0 rgba(0,0,0,.8);
+  box-shadow: 10px 10px 50px 0 rgba(0,0,0,.8);
+}
+.frm-login{
+  -webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	-ms-flex-direction: column;
+	-o-flex-direction: column;
+	flex-direction: column;
+}
+.frm-login input{width: 100vw; margin-top: 1.5em;}
+.frm-login input:first-child{margin: 0;}
+.frm-login input::-moz-selection { background-color: rgba(49,63,76,1); color: rgba(255,255,255,1);}
+.frm-login input::-webkit-selection { background-color: rgba(49,63,76,1); color: rgba(255,255,255,1);}
+.frm-login input::selection { background-color: rgba(49,63,76,1); color: rgba(255,255,255,1);}
+.frm-login input[type="password"]{
+  height: 0;
+  padding: 0; margin: 0;
+}
+.frm-login #submitLogin{
+  height: 0;
+  background-color: rgba(49,63,76,.5);
+  color: rgba(190,200,165,.9);
+  padding: 0; margin: 0;
+  cursor: pointer;
+  border: none;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.activeSubmitBt{
+  height: auto!important;
+  padding: 1em .5em!important;
+  margin-top: 1.5em!important;
+}
+/* Media */
+@media screen and (max-width: 414px){
+/*   Iphone 6 plus  */
+  #main{padding: 0 1em;}
+}
+</style>
+<body>
+    <main id="main" class="d-flx bg-full" role="main">
+        <section class="login d-flx">
+            <form action="" class="frm-login d-flx" role="login">
+                <input type="text" placeholder="User" id="userLogin" autofocus required="required" autocomplete="off">
+                <input type="password" placeholder="Pass" id="passLogin" required="required" autocomplete="off">
+                <button id="submitLogin">ENTRAR</button>
+            </form>
+        </section>
+    </main>
+</body>
+<script>
+(function openSubmitInputLogin () {
+  var inputUser, inputPass, inputSubmit;
+  
+  inputUser     = document.querySelector("#userLogin");
+  inputPass     = document.querySelector("#passLogin");
+  inputSubmit   = document.querySelector("#submitLogin");  
+
+    inputUser.onblur = function () {
+      if(inputUser.value !== ""){
+        inputPass.classList.add("activeSubmitBt");
+      }else {
+        inputPass.classList.remove("activeSubmitBt");
+      }
+     }
+    inputPass.onblur = function () {
+      if(inputPass.value !== ""){
+        inputSubmit.classList.add("activeSubmitBt");
+      }else {
+        inputSubmit.classList.remove("activeSubmitBt");
+        inputUser.focus();
+      }
+     }
+}());
+</script>
+</html>
